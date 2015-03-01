@@ -38,7 +38,7 @@ class App_to_Venue(models.Model):
 
 #Installs User_id - Date - App_id
 class Install(models.Model):
-	install_time = models.DateTimeField('datetime installed')
+	install_time = models.DateTimeField(auto_now=True)
 	app_id = models.ForeignKey(App)
 	venue = models.ForeignKey(Venue)
 	install_bid = models.IntegerField(default=0)
