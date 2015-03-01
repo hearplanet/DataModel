@@ -1,9 +1,6 @@
 from django.db import models
 
 # Create your models here.
-from django.db import models
-
-# Create your models here.
 # keys are built-in under hood of Model
 #publisher
 class Publisher(models.Model):
@@ -16,7 +13,7 @@ class Publisher(models.Model):
 #app
 class App(models.Model):
 	app_name = models.CharField(max_length=100)
-	app_store = models.CharField(max_length=100)
+	app_store_type = models.CharField(max_length=100)
 	current_bid = models.IntegerField(default=0)
 	app_balance = models.IntegerField(default=0)
 	publisher = models.ForeignKey(Publisher)
@@ -47,9 +44,10 @@ class Install(models.Model):
 	install_bid = models.IntegerField(default=0)
 	lat = models.DecimalField(max_digits=15, decimal_places=10)
 	lon = models.DecimalField(max_digits=15, decimal_places=10)
+	accuracy = models.IntegerField(default=0)
 
 #geofields
-class Geofield(models.Model):
-	lat = models.DecimalField(max_digits=15, decimal_places=10)
-	lon = models.DecimalField(max_digits=15, decimal_places=10)
-	venue_id = models.OneToOneField(Venue)
+# class Geofield(models.Model):
+# 	lat = models.DecimalField(max_digits=15, decimal_places=10)
+# 	lon = models.DecimalField(max_digits=15, decimal_places=10)
+# 	venue_id = models.OneToOneField(Venue)
